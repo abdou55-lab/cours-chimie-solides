@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours Chimie des Solides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #2d4373);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        h1 {
+            font-size: 32px;
+            color: #1a2a6c;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: #1a2a6c;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+        .chapter {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .chapter:hover {
+            border-color: #1a2a6c;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.1);
+        }
+        .chapter-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a2a6c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chapter-parts {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .chapter-parts a {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #dde4ec;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .chapter-parts a:hover {
+            background: #1a2a6c;
+            color: white;
+            border-color: #1a2a6c;
+        }
+        .chapter-desc {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 Cours de Chimie des Solides</h1>
+        <p class="subtitle">Cristallographie et Structures Cristallines</p>
+        <div class="divider"></div>
+
+        <!-- Chapitre 1 -->
+        <div class="chapter">
+            <div class="chapter-title">
+                <span>📖 Chapitre 1</span>
+                <span style="font-size:14px; color:#999;">complet</span>
+            </div>
+            <div class="chapter-desc">Introduction à la cristallographie</div>
+            <div class="chapter-parts">
+                <a href="chapitre1.html">Voir le chapitre</a>
+            </div>
+        </div>
+
+        <!-- Chapitre 2 -->
+        <div class="chapter">
+            <div class="chapter-title">
+                <span>🔬 Chapitre 2</span>
+                <span style="font-size:14px; color:#999;">3 parties</span>
+            </div>
+            <div class="chapter-desc">Réseau Cristallin et Maille Élémentaire</div>
+            <div class="chapter-parts">
+                <a href="chapitre2A.html">Partie A</a>
+                <a href="chapitre2B.html">Partie B</a>
+                <a href="chapitre2C.html">Partie C</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            Abdeldader LEBOUKH · Année Universitaire 2026-2027
+        </div>
+    </div>
+</body>
+</html>
