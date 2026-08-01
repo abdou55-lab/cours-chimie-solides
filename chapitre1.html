@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 1 : Introduction à la chimie du solide - Université Moulay Tahar Saida</title>
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: #eef1f5;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 25px 15px;
+        }
+
+        /* ============================================
+           CONTENEUR PRINCIPAL
+           ============================================ */
+        .chapter-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+        }
+
+        /* ============================================
+           EN-TÊTE DU CHAPITRE
+           ============================================ */
+        .chapter-header {
+            background: linear-gradient(145deg, #0b2a4a 0%, #1a4a7a 60%, #0f3a5f 100%);
+            padding: 20px 35px;
+            border-bottom: 5px solid #d4a843;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chapter-header .back-link {
+            color: #d4a843;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .chapter-header .back-link:hover {
+            background: rgba(212, 168, 67, 0.15);
+            color: #ffffff;
+        }
+
+        .chapter-header .chapter-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .chapter-header .chapter-title span {
+            color: #d4a843;
+        }
+
+        .chapter-header .chapter-badge {
+            background: rgba(212, 168, 67, 0.20);
+            border: 1px solid #d4a843;
+            border-radius: 30px;
+            padding: 6px 18px;
+            color: #d4a843;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           CONTENU DU COURS
+           ============================================ */
+        .chapter-content {
+            padding: 35px 40px 45px 40px;
+        }
+
+        /* Titres */
+        .chapter-content h1 {
+            font-size: 32px;
+            color: #0b2a4a;
+            text-align: center;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .chapter-content .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #1a4a7a;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .chapter-content .year {
+            text-align: center;
+            font-size: 18px;
+            color: #4a6a8a;
+            margin-bottom: 30px;
+        }
+
+        .chapter-content .section-title {
+            font-size: 26px;
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #d4a843;
+        }
+
+        .chapter-content .subsection-title {
+            font-size: 22px;
+            color: #1a4a7a;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-content .subsubsection-title {
+            font-size: 19px;
+            color: #2a5a8a;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-content p {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .chapter-content ul li, .chapter-content ol li {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        /* Tableaux */
+        .chapter-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 20px 0;
+            font-size: 15px;
+        }
+
+        .chapter-content table th {
+            background: #1a4a7a;
+            color: #ffffff;
+            padding: 10px 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chapter-content table td {
+            padding: 8px 12px;
+            border: 1px solid #dce3ec;
+            text-align: center;
+        }
+
+        .chapter-content table tr:nth-child(even) {
+            background: #f8faff;
+        }
+
+        .chapter-content table tr:hover {
+            background: #e8eef8;
+        }
+
+        /* Notes et astuces */
+        .chapter-content .note-box {
+            background: #f8faff;
+            border-left: 4px solid #d4a843;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .chapter-content .note-box strong {
+            color: #1a4a7a;
+        }
+
+        .chapter-content .formula {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #0b2a4a;
+            padding: 15px 0;
+            background: #f0f6ff;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        /* Schéma des bandes d'énergie (simplifié) */
+        .energy-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
+            margin: 25px 0;
+            padding: 20px;
+            background: #f5f8fc;
+            border-radius: 12px;
+            flex-wrap: wrap;
+        }
+
+        .energy-diagram .molecule {
+            text-align: center;
+        }
+
+        .energy-diagram .molecule .label {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0b2a4a;
+            margin-bottom: 10px;
+        }
+
+        .energy-diagram .molecule .levels {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .energy-diagram .molecule .levels .level {
+            width: 60px;
+            height: 4px;
+            background: #1a4a7a;
+            border-radius: 2px;
+        }
+
+        .energy-diagram .molecule .levels .level.gap {
+            height: 12px;
+            background: transparent;
+        }
+
+        .energy-diagram .arrow {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            color: #1a4a7a;
+            font-weight: 300;
+        }
+
+        .energy-diagram .solid {
+            text-align: center;
+        }
+
+        .energy-diagram .solid .label {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0b2a4a;
+            margin-bottom: 10px;
+        }
+
+        .energy-diagram .solid .bands {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .energy-diagram .solid .bands .band {
+            width: 100px;
+            height: 20px;
+            background: #1a4a7a;
+            border-radius: 4px;
+        }
+
+        .energy-diagram .solid .bands .band.conduction {
+            background: #d4a843;
+        }
+
+        .energy-diagram .solid .bands .band.gap {
+            height: 8px;
+            background: transparent;
+            font-size: 12px;
+            color: #4a6a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .energy-diagram .solid .bands .band.valence {
+            background: #1a4a7a;
+        }
+
+        /* ============================================
+           BOUTONS
+           ============================================ */
+        .download-chapter {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            border-top: 2px solid #e8ecf4;
+            padding-top: 25px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(145deg, #1a4a7a, #0f3a5f);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.30);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 74, 122, 0.40);
+            background: linear-gradient(145deg, #1f5a8a, #124a7a);
+        }
+
+        .btn-download.secondary {
+            background: #ffffff;
+            color: #1a4a7a;
+            border: 2px solid #1a4a7a;
+            box-shadow: none;
+        }
+
+        .btn-download.secondary:hover {
+            background: #f0f6ff;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.15);
+        }
+
+        .btn-download .icon {
+            font-size: 18px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            body { padding: 12px 8px; }
+            .chapter-header { padding: 16px 20px; flex-direction: column; align-items: stretch; }
+            .chapter-header .back-link { align-self: flex-start; }
+            .chapter-header .chapter-title { font-size: 18px; }
+            .chapter-header .chapter-badge { align-self: flex-start; }
+            .chapter-content { padding: 20px 18px 30px 18px; }
+            .chapter-content h1 { font-size: 24px; }
+            .chapter-content .section-title { font-size: 20px; }
+            .chapter-content .subsection-title { font-size: 18px; }
+            .chapter-content table { font-size: 13px; }
+            .chapter-content table th, .chapter-content table td { padding: 6px 8px; }
+            .energy-diagram { flex-direction: column; align-items: center; gap: 15px; }
+            .energy-diagram .arrow { transform: rotate(90deg); }
+            .download-chapter { flex-direction: column; }
+            .btn-download { width: 100%; justify-content: center; padding: 12px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-header .chapter-title { font-size: 16px; }
+            .chapter-content h1 { font-size: 20px; }
+            .chapter-content .section-title { font-size: 17px; }
+            .chapter-content table { font-size: 11px; }
+            .chapter-content table th, .chapter-content table td { padding: 4px 6px; }
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .chapter-wrapper { box-shadow: none; border-radius: 0; }
+            .chapter-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .btn-download { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-wrapper">
+
+    <!-- ==========================================
+    EN-TÊTE DU CHAPITRE
+    ========================================== -->
+    <header class="chapter-header">
+        <a href="index.html" class="back-link">← Retour au sommaire</a>
+        <div class="chapter-title">Chapitre 1 : <span>Introduction à la chimie du solide</span></div>
+        <div class="chapter-badge">📘 Chapitre 1</div>
+    </header>
+
+    <!-- ==========================================
+    CONTENU DU COURS
+    ========================================== -->
+    <div class="chapter-content">
+
+        <!-- Titre principal -->
+        <h1>Introduction à la Chimie du Solide</h1>
+        <div class="subtitle">Abdelkader LEBOUKH</div>
+        <div class="year">Année Universitaire 2026-2027</div>
+
+        <!-- ==========================================
+        SECTION 1 : DÉFINITIONS FONDAMENTALES
+        ========================================== -->
+        <div class="section-title">1. Définitions fondamentales</div>
+
+        <p>
+            La <strong>chimie du solide</strong> est la branche de la chimie qui étudie la synthèse, la structure
+            et les propriétés des matériaux à l'état condensé. Contrairement à la chimie moléculaire
+            qui se concentre sur des entités discrètes (molécules), la chimie du solide s'intéresse à des
+            assemblages infinis d'atomes <sup>[1]</sup>.
+        </p>
+
+        <!-- 1.1 Solide cristallin -->
+        <div class="subsection-title">1.1 Le solide cristallin</div>
+
+        <p>
+            Un <strong>solide cristallin</strong> est caractérisé par un <em>ordre à longue distance</em>.
+            Les atomes, ions ou molécules qui le composent sont arrangés selon un motif périodique
+            et régulier qui se répète dans les trois dimensions de l'espace. Cette périodicité est
+            décrite par un <strong>réseau de Bravais</strong> et une <strong>maille élémentaire</strong>.
+        </p>
+
+        <div class="note-box">
+            <strong>Exemple classique :</strong> Le sel de table (NaCl) dont la structure est cubique à faces centrées (CFC).
+        </div>
+
+        <div class="note-box">
+            <strong>Propriété :</strong> Les cristaux présentent des faces planes et des angles bien définis
+            (<em>habit cristallin</em>).
+        </div>
+
+        <!-- 1.2 Solide amorphe -->
+        <div class="subsection-title">1.2 Le solide amorphe (ou vitreux)</div>
+
+        <p>
+            Un <strong>solide amorphe</strong> possède un <em>ordre à courte distance</em> uniquement.
+            Il n'y a pas de périodicité au-delà de quelques rayons atomiques. On le qualifie souvent
+            de <em>"liquide figé"</em>.
+        </p>
+
+        <div class="note-box">
+            <strong>Exemple classique :</strong> Le verre (dioxyde de silicium SiO₂ amorphe).
+        </div>
+
+        <div class="note-box">
+            <strong>Propriété :</strong> Absence de point de fusion net ; transition vitreuse progressive.
+        </div>
+
+        <!-- 1.3 Solide polycristallin -->
+        <div class="subsection-title">1.3 Le solide polycristallin</div>
+
+        <p>
+            Un <strong>solide polycristallin</strong> est un agrégat de nombreux petits cristaux (ou <em>grains</em>)
+            orientés aléatoirement. Chaque grain est un cristal parfait, mais les joints de grains
+            perturbent la continuité du réseau.
+        </p>
+
+        <div class="note-box">
+            <strong>Exemple classique :</strong> La plupart des métaux (cuivre, fer) à l'état solide dans les conditions ambiantes.
+        </div>
+
+        <div class="note-box">
+            <strong>Propriété :</strong> Les propriétés mécaniques (dureté, limite élastique) dépendent fortement
+            de la taille des grains (loi de Hall-Petch).
+        </div>
+
+        <!-- Tableau comparatif -->
+        <div class="subsection-title">Tableau 1 – Comparaison des états solides</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Propriété</th>
+                    <th>Cristallin</th>
+                    <th>Amorphe</th>
+                    <th>Polycristallin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ordre atomique</strong></td>
+                    <td>Longue distance</td>
+                    <td>Courte distance</td>
+                    <td>Longue distance (par grain)</td>
+                </tr>
+                <tr>
+                    <td><strong>Diffraction RX</strong></td>
+                    <td>Pics fins (raies)</td>
+                    <td>Halos larges</td>
+                    <td>Pics fins (superposition)</td>
+                </tr>
+                <tr>
+                    <td><strong>Fusion</strong></td>
+                    <td>Température fixe (T<sub>fusion</sub>)</td>
+                    <td>Intervalle de ramollissement</td>
+                    <td>Température fixe</td>
+                </tr>
+                <tr>
+                    <td><strong>Anisotropie</strong></td>
+                    <td>Oui (propriétés dépendent de la direction)</td>
+                    <td>Non (isotrope)</td>
+                    <td>Non (isotrope globalement)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 1.4 Différence solide vs molécule -->
+        <div class="subsection-title">1.4 Différence entre solide et molécule isolée</div>
+
+        <p>
+            Il est crucial de distinguer le <strong>solide</strong> de la <strong>molécule isolée</strong> <sup>[2]</sup> :
+        </p>
+
+        <ul>
+            <li>
+                <strong>Énergie :</strong> Dans un solide, les niveaux d'énergie discrets de la molécule
+                s'élargissent en <em>bandes d'énergie</em> (théorie des bandes) à cause du recouvrement
+                des orbitales atomiques entre atomes voisins. Un gaz de molécules isolées présente des
+                raies spectrales fines, tandis qu'un solide présente un spectre continu de bandes.
+            </li>
+            <li>
+                <strong>Propriétés électroniques :</strong> Une molécule isolée est généralement isolante
+                ou semi-conductrice (gap discret). Un solide peut être métallique, semi-conducteur ou
+                isolant selon le remplissage des bandes de valence et de conduction.
+            </li>
+        </ul>
+
+        <!-- Schéma des bandes d'énergie -->
+        <div class="subsubsection-title">Figure 1 – Formation des bandes d'énergie</div>
+
+        <div class="energy-diagram">
+            <div class="molecule">
+                <div class="label">Molécule isolée</div>
+                <div class="levels">
+                    <div class="level"></div>
+                    <div class="level"></div>
+                    <div class="level"></div>
+                    <div class="level"></div>
+                    <div class="level"></div>
+                    <div class="level gap"></div>
+                    <div class="level"></div>
+                    <div class="level"></div>
+                </div>
+                <div style="font-size:13px;color:#4a6a8a;margin-top:4px;">Niveaux discrets</div>
+            </div>
+
+            <div class="arrow">⟶</div>
+
+            <div class="solid">
+                <div class="label">Solide cristallin</div>
+                <div class="bands">
+                    <div class="band conduction"></div>
+                    <div class="band gap">Gap (E<sub>g</sub>)</div>
+                    <div class="band valence"></div>
+                </div>
+                <div style="font-size:13px;color:#4a6a8a;margin-top:4px;">Bandes continues</div>
+            </div>
+        </div>
+
+        <p style="font-size:14px;color:#4a6a8a;text-align:center;margin-top:-10px;">
+            Illustration de la formation des bandes d'énergie dans un solide cristallin à partir des niveaux
+            d'énergie discrets d'une molécule isolée. Le recouvrement des orbitales atomiques entre atomes
+            voisins conduit à l'élargissement des niveaux en bandes continues.
+        </p>
+
+        <!-- ==========================================
+        SECTION 2 : PROPRIÉTÉS MACROSCOPIQUES
+        ========================================== -->
+        <div class="section-title">2. Propriétés macroscopiques influencées par la structure atomique</div>
+
+        <p>
+            La structure atomique dicte presque toutes les propriétés physico-chimiques macroscopiques
+            d'un solide. Voici les corrélations majeures :
+        </p>
+
+        <div class="subsection-title">2.1 Propriétés mécaniques</div>
+
+        <ul>
+            <li>
+                <strong>Dureté et élasticité :</strong> Elles dépendent de la force des liaisons chimiques
+                (covalente, ionique, métallique, Van der Waals) et de la densité d'atomes par unité de volume.
+                Le diamant (liaisons covalentes fortes en 3D) est le matériau le plus dur connu.
+            </li>
+            <li>
+                <strong>Plasticité et ductilité :</strong> Les métaux (liaison métallique non directionnelle)
+                sont malléables car les plans atomiques peuvent glisser les uns sur les autres via des
+                <em>dislocations</em> <sup>[3]</sup>.
+            </li>
+        </ul>
+
+        <div class="subsection-title">2.2 Propriétés thermiques</div>
+
+        <ul>
+            <li>
+                <strong>Capacité calorifique :</strong> Modélisée par le modèle de Debye ou d'Einstein
+                qui prend en compte les <em>phonons</em> (vibrations du réseau).
+            </li>
+            <li>
+                <strong>Dilatation thermique :</strong> Liée à l'anharmonicité des potentiels interatomiques.
+                Les solides anisotropes (ex : graphite) se dilatent différemment selon les axes cristallographiques.
+            </li>
+        </ul>
+
+        <div class="subsection-title">2.3 Propriétés électriques et optiques</div>
+
+        <ul>
+            <li>
+                <strong>Conduction :</strong> Dépend de la densité d'états électroniques au niveau de Fermi.
+                Un solide cristallin peut être un métal (sans gap), un semi-conducteur (gap faible, &lt; 3 eV)
+                ou un isolant (gap large).
+            </li>
+            <li>
+                <strong>Couleur :</strong> Dans les solides, la couleur provient des transitions électroniques
+                entre bandes (ex : oxydes de métaux de transition) ou des défauts ponctuels (centres de couleur,
+                ex : améthyste).
+            </li>
+        </ul>
+
+        <!-- ==========================================
+        SECTION 3 : CRISTALLOGRAPHIE
+        ========================================== -->
+        <div class="section-title">3. Rôle central de la cristallographie dans la science des matériaux</div>
+
+        <p>
+            La <strong>cristallographie</strong> est la science de l'arrangement des atomes dans la matière
+            condensée. Elle est la <em>"boîte à outils"</em> fondamentale du chimiste du solide <sup>[3]</sup>.
+        </p>
+
+        <div class="subsection-title">3.1 La loi de Bragg</div>
+
+        <p>
+            La diffraction des rayons X (DRX) est la technique de prédilection pour sonder la structure
+            cristalline. La <strong>loi de Bragg</strong> relie la distance interréticulaire
+            <em>d<sub>hkl</sub></em> (distance entre plans atomiques) à l'angle de diffraction <em>θ</em> :
+        </p>
+
+        <div class="formula">
+            n λ = 2 d<sub>hkl</sub> sin θ
+        </div>
+
+        <p>
+            où <em>n</em> est l'ordre de diffraction et <em>λ</em> la longueur d'onde des rayons X.
+        </p>
+
+        <div class="subsection-title">3.2 Pourquoi la cristallographie est-elle centrale ?</div>
+
+        <ol>
+            <li>
+                <strong>Identification des phases :</strong> Chaque composé cristallin possède une
+                <em>"empreinte digitale"</em> diffractométrique unique (fichiers PDF de l'ICDD).
+            </li>
+            <li>
+                <strong>Détermination de structure :</strong> Permet de résoudre des structures complexes
+                (protéines, zéolithes, supraconducteurs) et de prédire les propriétés (ex : via l'analyse
+                de la densité électronique).
+            </li>
+            <li>
+                <strong>Contrôle qualité :</strong> Suivi de la pureté, des contraintes résiduelles,
+                de la texture et de la taille des cristallites dans l'industrie (pharmacie, métallurgie,
+                batterie Li-ion).
+            </li>
+        </ol>
+
+        <!-- ==========================================
+        SECTION 4 : OUTILS INFORMATIQUES
+        ========================================== -->
+        <div class="section-title">4. Outils informatiques et intelligence artificielle</div>
+
+        <p>
+            La chimie du solide moderne est intimement liée au calcul numérique et à l'IA.
+            Voici une liste non exhaustive d'outils essentiels <sup>[5]</sup>.
+        </p>
+
+        <div class="subsection-title">4.1 Outils fondamentaux pour la visualisation et la modélisation</div>
+
+        <ul>
+            <li>
+                <strong>VESTA :</strong> Logiciel de visualisation 3D de structures cristallines.
+                Permet de dessiner des mailles, des polyèdres et de simuler des diagrammes de diffraction.
+            </li>
+            <li>
+                <strong>Mercury (CSD) :</strong> Visualiseur de la base de données Cambridge Structural
+                Database (petites molécules organiques et organométalliques).
+            </li>
+            <li>
+                <strong>Avogadro :</strong> Éditeur moléculaire pour construire des surfaces, des clusters
+                et préparer des calculs quantiques.
+            </li>
+        </ul>
+
+        <div class="subsection-title">4.2 Outils de calcul quantique et de simulation</div>
+
+        <ul>
+            <li>
+                <strong>VASP (Vienna Ab initio Simulation Package) :</strong> Code de référence pour
+                les calculs DFT (Densité Fonctionnelle de la Théorie) sur les solides. Utilisé pour
+                prédire les structures de bandes, les énergies de cohésion et les propriétés élastiques.
+            </li>
+            <li>
+                <strong>Quantum ESPRESSO :</strong> Suite open-source de calculs <em>ab initio</em>
+                basée sur la DFT, les pseudopotentiels et les ondes planes.
+            </li>
+            <li>
+                <strong>CRYSTAL :</strong> Programme pour les calculs de structure électronique des
+                solides avec bases atomiques (Hartree-Fock, DFT hybrides).
+            </li>
+        </ul>
+
+        <div class="subsection-title">4.3 Intelligence Artificielle et apprentissage automatique</div>
+
+        <ul>
+            <li>
+                <strong>Matbench :</strong> Benchmark de performance pour les modèles d'apprentissage
+                automatique appliqués à la science des matériaux.
+            </li>
+            <li>
+                <strong>CGCNN (Crystal Graph Convolutional Neural Networks) :</strong> Réseau de neurones
+                convolutifs sur graphe cristallin permettant de prédire les propriétés des solides à
+                partir de la structure atomique.
+            </li>
+            <li>
+                <strong>Megnet :</strong> Graph network pour la prédiction des propriétés des matériaux,
+                développé par le groupe de Matthias Rupp.
+            </li>
+            <li>
+                <strong>GPT-Chemist / ChemCrow :</strong> Modèles de langage (LLM) spécialisés ou intégrés
+                pour la synthèse chimique et la planification expérimentale. Ils assistent les chimistes
+                dans la recherche d'articles, l'extraction de données de synthèse et la proposition de
+                voies réactionnelles.
+            </li>
+        </ul>
+
+        <div class="subsection-title">4.4 Plateformes intégrées et bases de données</div>
+
+        <ul>
+            <li>
+                <strong>The Materials Project :</strong> Base de données géante (plus de 100 000 structures)
+                avec propriétés calculées par DFT. Permet une recherche par composition, structure ou
+                propriétés.
+            </li>
+            <li>
+                <strong>AFLOW (Automatic Flow for Materials Discovery) :</strong> Base de données et
+                outils pour la découverte à haut débit.
+            </li>
+            <li>
+                <strong>NOMAD (Novel Materials Discovery) :</strong> Plateforme de partage de données
+                brutes de calculs DFT avec un fort accent sur la reproductibilité et le FAIR
+                (Findable, Accessible, Interoperable, Reusable).
+            </li>
+        </ul>
+
+        <!-- ==========================================
+        RÉFÉRENCES
+        ========================================== -->
+        <div class="section-title" style="margin-top:45px;">Références bibliographiques</div>
+
+        <p style="font-size:14px;line-height:1.8;">
+            <sup>[1]</sup> West, A. R. (2014). <em>Solid State Chemistry and its Applications</em>. 2nd Edition. Wiley.<br>
+            <sup>[2]</sup> Smart, L. E., &amp; Moore, E. A. (2012). <em>Solid State Chemistry : An Introduction</em>. 4th Edition. CRC Press.<br>
+            <sup>[3]</sup> Sholl, D. S., &amp; Steckel, J. A. (2009). <em>Density Functional Theory : A Practical Introduction</em>. Wiley.<br>
+            <sup>[4]</sup> Goodenough, J. B. (2018). Energy Storage Materials : A Perspective. <em>MRS Bulletin</em>, 43(8), 590-594.<br>
+            <sup>[5]</sup> Butler, K. T., <em>et al.</em> (2018). Machine learning for molecular and materials science. <em>Nature</em>, 559, 547–555.
+        </p>
+
+        <div style="margin-top:30px;padding:20px;background:#f0f6ff;border-radius:12px;border:1px solid #dce3ec;">
+            <h3 style="font-size:20px;color:#0b2a4a;margin-bottom:10px;">📝 Conclusion du cours</h3>
+            <p style="font-size:16px;color:#2c3e50;text-align:justify;">
+                En deux semaines, nous avons posé les bases conceptuelles de la chimie du solide :
+                depuis la définition des différents états cristallins jusqu'à l'impact de la structure
+                sur les propriétés, en passant par la cristallographie. La puissance de l'approche moderne
+                repose sur l'interaction entre l'expérimentation (DRX, microscopies), la modélisation (DFT)
+                et l'IA (apprentissage automatique). La maîtrise des outils listés dans ce cours
+                (VESTA, Materials Project, Quantum ESPRESSO, CGCNN) est un atout majeur pour le chimiste
+                des matériaux du XXI<sup>e</sup> siècle.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+    BOUTONS DE TÉLÉCHARGEMENT
+    ========================================== -->
+    <div class="download-chapter">
+        <a href="Introduction_a_la_chimie_du_solide.html" class="btn-download" target="_blank">
+            <span class="icon">📄</span> Ouvrir le cours dans un nouvel onglet
+        </a>
+        <a href="#" class="btn-download secondary">
+            <span class="icon">⬇️</span> Télécharger le cours (PDF)
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
