@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 2A : Réseau Cristallin et Maille Élémentaire - Université Moulay Tahar Saida</title>
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: #eef1f5;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 25px 15px;
+        }
+
+        /* ============================================
+           CONTENEUR PRINCIPAL
+           ============================================ */
+        .chapter-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+        }
+
+        /* ============================================
+           EN-TÊTE DU CHAPITRE
+           ============================================ */
+        .chapter-header {
+            background: linear-gradient(145deg, #0b2a4a 0%, #1a4a7a 60%, #0f3a5f 100%);
+            padding: 20px 35px;
+            border-bottom: 5px solid #d4a843;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chapter-header .back-link {
+            color: #d4a843;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .chapter-header .back-link:hover {
+            background: rgba(212, 168, 67, 0.15);
+            color: #ffffff;
+        }
+
+        .chapter-header .chapter-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .chapter-header .chapter-title span {
+            color: #d4a843;
+        }
+
+        .chapter-header .chapter-badge {
+            background: rgba(212, 168, 67, 0.20);
+            border: 1px solid #d4a843;
+            border-radius: 30px;
+            padding: 6px 18px;
+            color: #d4a843;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           CONTENU DU COURS
+           ============================================ */
+        .chapter-content {
+            padding: 35px 40px 45px 40px;
+        }
+
+        /* Titres */
+        .chapter-content h1 {
+            font-size: 32px;
+            color: #0b2a4a;
+            text-align: center;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .chapter-content .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #1a4a7a;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .chapter-content .year {
+            text-align: center;
+            font-size: 18px;
+            color: #4a6a8a;
+            margin-bottom: 30px;
+        }
+
+        .chapter-content .section-title {
+            font-size: 26px;
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #d4a843;
+        }
+
+        .chapter-content .subsection-title {
+            font-size: 22px;
+            color: #1a4a7a;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-content .subsubsection-title {
+            font-size: 19px;
+            color: #2a5a8a;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-content p {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .chapter-content ul li, .chapter-content ol li {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        /* Tableaux */
+        .chapter-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 20px 0;
+            font-size: 15px;
+        }
+
+        .chapter-content table th {
+            background: #1a4a7a;
+            color: #ffffff;
+            padding: 10px 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chapter-content table td {
+            padding: 8px 12px;
+            border: 1px solid #dce3ec;
+            text-align: center;
+        }
+
+        .chapter-content table tr:nth-child(even) {
+            background: #f8faff;
+        }
+
+        .chapter-content table tr:hover {
+            background: #e8eef8;
+        }
+
+        /* Notes et astuces */
+        .chapter-content .note-box {
+            background: #f8faff;
+            border-left: 4px solid #d4a843;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .chapter-content .note-box strong {
+            color: #1a4a7a;
+        }
+
+        .chapter-content .formula {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #0b2a4a;
+            padding: 15px 0;
+            background: #f0f6ff;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        /* Navigation entre parties */
+        .chapter-content .part-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .chapter-content .part-navigation a {
+            background: #f0f6ff;
+            color: #1a4a7a;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #dce3ec;
+            transition: all 0.3s ease;
+        }
+
+        .chapter-content .part-navigation a:hover {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .part-navigation a.active {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .continuation {
+            text-align: center;
+            font-style: italic;
+            color: #4a6a8a;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            border-top: 2px dashed #dce3ec;
+            border-bottom: 2px dashed #dce3ec;
+        }
+
+        /* ============================================
+           BOUTONS
+           ============================================ */
+        .download-chapter {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            border-top: 2px solid #e8ecf4;
+            padding-top: 25px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(145deg, #1a4a7a, #0f3a5f);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.30);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 74, 122, 0.40);
+            background: linear-gradient(145deg, #1f5a8a, #124a7a);
+        }
+
+        .btn-download.secondary {
+            background: #ffffff;
+            color: #1a4a7a;
+            border: 2px solid #1a4a7a;
+            box-shadow: none;
+        }
+
+        .btn-download.secondary:hover {
+            background: #f0f6ff;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.15);
+        }
+
+        .btn-download .icon {
+            font-size: 18px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            body { padding: 12px 8px; }
+            .chapter-header { padding: 16px 20px; flex-direction: column; align-items: stretch; }
+            .chapter-header .back-link { align-self: flex-start; }
+            .chapter-header .chapter-title { font-size: 18px; }
+            .chapter-header .chapter-badge { align-self: flex-start; }
+            .chapter-content { padding: 20px 18px 30px 18px; }
+            .chapter-content h1 { font-size: 24px; }
+            .chapter-content .section-title { font-size: 20px; }
+            .chapter-content .subsection-title { font-size: 18px; }
+            .chapter-content table { font-size: 13px; }
+            .chapter-content table th, .chapter-content table td { padding: 6px 8px; }
+            .download-chapter { flex-direction: column; }
+            .btn-download { width: 100%; justify-content: center; padding: 12px 20px; }
+            .chapter-content .part-navigation a { padding: 6px 14px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-header .chapter-title { font-size: 16px; }
+            .chapter-content h1 { font-size: 20px; }
+            .chapter-content .section-title { font-size: 17px; }
+            .chapter-content table { font-size: 11px; }
+            .chapter-content table th, .chapter-content table td { padding: 4px 6px; }
+        }
+
+        /* --- PRINT --- */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .chapter-wrapper { box-shadow: none; border-radius: 0; }
+            .chapter-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .btn-download { display: none; }
+            .chapter-content .part-navigation { display: none; }
+            .chapter-content .continuation { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-wrapper">
+
+    <!-- ==========================================
+    EN-TÊTE DU CHAPITRE
+    ========================================== -->
+    <header class="chapter-header">
+        <a href="index.html" class="back-link">← Retour au sommaire</a>
+        <div class="chapter-title">Chapitre 2 : <span>Réseau Cristallin et Maille Élémentaire</span></div>
+        <div class="chapter-badge">📘 Partie A</div>
+    </header>
+
+    <!-- ==========================================
+    CONTENU DU COURS
+    ========================================== -->
+    <div class="chapter-content">
+
+        <!-- Titre principal -->
+        <h1>Réseau Cristallin et Maille Élémentaire</h1>
+        <div class="subtitle">Abdeldader LEBOUKH</div>
+        <div class="year">Année Universitaire 2026-2027</div>
+
+        <!-- Navigation entre parties -->
+        <div class="part-navigation">
+            <a href="chapitre2A.html" class="active">Partie A</a>
+            <a href="chapitre2B.html">Partie B</a>
+            <a href="chapitre2C.html">Partie C</a>
+        </div>
+
+        <!-- ==========================================
+        RÉSUMÉ
+        ========================================== -->
+        <div class="section-title">Résumé</div>
+
+        <p>
+            Ce cours présente les concepts fondamentaux de la cristallographie, en se concentrant
+            sur les réseaux cristallins et les mailles élémentaires. Nous aborderons les notions de
+            réseau de Bravais, les différents types de mailles, les 7 systèmes cristallins, les 14 réseaux
+            de Bravais, ainsi que les sites interstitiels et leur occupation dans les structures métalliques
+            et ioniques. Des ressources informatiques et des outils d'intelligence artificielle sont intégrés
+            pour faciliter l'apprentissage et la visualisation.
+        </p>
+
+        <!-- ==========================================
+        TABLE DES MATIÈRES
+        ========================================== -->
+        <div class="section-title">Table des matières</div>
+
+        <ol style="font-size:15px; line-height:2.2; columns:2 280px; list-style-position: inside;">
+            <li><strong>Introduction : La Périodicité des Cristaux</strong></li>
+            <li><strong>Notions de Maille</strong>
+                <ol type="a" style="padding-left:20px;">
+                    <li>Maille Primitive</li>
+                    <li>Maille Conventionnelle</li>
+                </ol>
+            </li>
+            <li><strong>Notions de Réseau de Bravais</strong>
+                <ol type="a" style="padding-left:20px;">
+                    <li>Définition mathématique</li>
+                    <li>Propriétés d'un réseau de Bravais</li>
+                </ol>
+            </li>
+            <li><strong>Les 7 Systèmes Cristallins</strong></li>
+            <li><strong>Les 14 Réseaux de Bravais</strong>
+                <ol type="a" style="padding-left:20px;">
+                    <li>Classification complète</li>
+                    <li>Notation des réseaux</li>
+                    <li>Exemples détaillés</li>
+                </ol>
+            </li>
+            <li><strong>Sites Interstitiels</strong>
+                <ol type="a" style="padding-left:20px;">
+                    <li>Sites Octaédriques</li>
+                    <li>Sites Tétraédriques</li>
+                    <li>Nombre de sites interstitiels</li>
+                </ol>
+            </li>
+            <li><strong>Occupation dans les Structures Métalliques et Ioniques</strong>
+                <ol type="a" style="padding-left:20px;">
+                    <li>Structures Métalliques</li>
+                    <li>Structures Ioniques</li>
+                </ol>
+            </li>
+            <li><strong>Outils Informatiques et IA</strong></li>
+            <li><strong>Bibliographie</strong></li>
+        </ol>
+
+        <!-- ==========================================
+        SECTION 1 : INTRODUCTION
+        ========================================== -->
+        <div class="section-title">1. Introduction : La Périodicité des Cristaux</div>
+
+        <p>
+            Un cristal se caractérise par l'arrangement périodique et ordonné de ses constituants
+            (atomes, ions ou molécules) dans l'espace. Cette organisation confère aux solides cristallins
+            des propriétés physiques spécifiques, comme des formes géométriques régulières et des angles
+            de clivage définis.
+        </p>
+
+        <p>
+            Pour décrire cette périodicité, on utilise deux concepts fondamentaux :
+        </p>
+
+        <ul>
+            <li>
+                <strong>Le réseau :</strong> C'est une construction mathématique abstraite. C'est un ensemble
+                infini de points discrets (les nœuds) disposés de manière périodique dans l'espace. Le réseau
+                reflète la symétrie du cristal.
+            </li>
+            <li>
+                <strong>La base (ou motif) :</strong> C'est l'ensemble des atomes ou ions associés à chaque
+                nœud du réseau. Le motif décrit la chimie du cristal.
+            </li>
+        </ul>
+
+        <p>
+            Un cristal est donc construit en appliquant le motif à chaque point du réseau. On peut écrire
+            mathématiquement cette relation comme :
+        </p>
+
+        <div class="formula">
+            Cristal = Réseau ⊗ Base &nbsp;&nbsp;(1)
+        </div>
+
+        <!-- ==========================================
+        SECTION 2 : NOTIONS DE MAILLE
+        ========================================== -->
+        <div class="section-title">2. Notions de Maille</div>
+
+        <p>
+            Pour décrire un réseau infini de manière pratique, on le divise en unités répétitives plus
+            petites : les mailles.
+        </p>
+
+        <div class="subsection-title">2.1 Maille Primitive</div>
+
+        <p>
+            Une maille primitive est la plus petite cellule qui, par translation, permet de reproduire
+            tout le réseau sans chevauchement ni espace vide.
+        </p>
+
+        <ul>
+            <li>Elle ne contient qu'un seul nœud du réseau (ou point de Bravais) par volume.</li>
+            <li>Son choix n'est pas unique. On cherche généralement la maille primitive qui reflète au
+                mieux la symétrie du réseau.</li>
+            <li>La construction de Wigner-Seitz est une méthode systématique pour définir une maille
+                primitive unique qui possède la symétrie complète du réseau.</li>
+        </ul>
+
+        <div class="subsection-title">2.2 Maille Conventionnelle</div>
+
+        <p>
+            La maille conventionnelle est une cellule plus grande que la maille primitive.
+        </p>
+
+        <ul>
+            <li>Elle est choisie pour mettre en évidence la symétrie du réseau de manière plus évidente
+                et pour faciliter les calculs.</li>
+            <li>Par exemple, pour un réseau cubique à faces centrées (CFC), la maille primitive est un
+                rhomboèdre, mais la maille conventionnelle est un cube, qui est beaucoup plus intuitif.</li>
+        </ul>
+
+        <div class="subsubsection-title">Figure 1 – Construction d'une maille de Wigner-Seitz dans le cas d'un réseau bidimensionnel carré</div>
+
+        <!-- Tableau 1 -->
+        <div class="subsection-title">Tableau 1 – Comparaison entre maille primitive et maille conventionnelle</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Caractéristique</th>
+                    <th>Maille Primitive (P)</th>
+                    <th>Maille Conventionnelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Taille</strong></td>
+                    <td>La plus petite possible</td>
+                    <td>Plus grande (un multiple entier de la primitive)</td>
+                </tr>
+                <tr>
+                    <td><strong>Volume</strong></td>
+                    <td>V<sub>p</sub></td>
+                    <td>V<sub>c</sub> = n × V<sub>p</sub> avec n ∈ ℕ*</td>
+                </tr>
+                <tr>
+                    <td><strong>Nombre de nœuds</strong></td>
+                    <td>1</td>
+                    <td>&gt; 1 (dépend du type de réseau)</td>
+                </tr>
+                <tr>
+                    <td><strong>Symétrie</strong></td>
+                    <td>Peut ne pas refléter toutes les symétries</td>
+                    <td>Choisie pour refléter au mieux la symétrie</td>
+                </tr>
+                <tr>
+                    <td><strong>Utilisation</strong></td>
+                    <td>Théorique, calculs</td>
+                    <td>Pratique, description des cristaux</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="subsubsection-title">Figure 2 – Exemple de maille primitive (rouge) et conventionnelle (bleu) pour un réseau 2D carré</div>
+
+        <!-- ==========================================
+        SECTION 3 : RÉSEAU DE BRAVAIS
+        ========================================== -->
+        <div class="section-title">3. Notions de Réseau de Bravais</div>
+
+        <p>
+            Le réseau de Bravais est un concept fondamental en cristallographie. Il s'agit d'un réseau
+            infini de points discrets (les nœuds) qui possède la propriété suivante : l'environnement de
+            chaque nœud est identique (invariance par translation).
+        </p>
+
+        <div class="subsection-title">3.1 Définition mathématique</div>
+
+        <p>
+            Un réseau de Bravais peut être défini par trois vecteurs de translation fondamentaux
+            <strong>a</strong>, <strong>b</strong> et <strong>c</strong> tels que tout nœud du réseau peut
+            être atteint par la combinaison linéaire :
+        </p>
+
+        <div class="formula">
+            R&#8407; = n<sub>1</sub> a&#8407; + n<sub>2</sub> b&#8407; + n<sub>3</sub> c&#8407; &nbsp;&nbsp;avec&nbsp;&nbsp; n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub> ∈ ℤ &nbsp;&nbsp;(2)
+        </div>
+
+        <p>Où (n<sub>1</sub>, n<sub>2</sub>, n<sub>3</sub>) sont des entiers relatifs.</p>
+
+        <div class="subsection-title">3.2 Propriétés d'un réseau de Bravais</div>
+
+        <ol>
+            <li><strong>Périodicité :</strong> Le réseau est périodique dans les trois dimensions de l'espace.</li>
+            <li><strong>Invariance :</strong> L'environnement de chaque nœud est rigoureusement identique.</li>
+            <li><strong>Symétrie :</strong> Le réseau possède des symétries de translation, de rotation et de réflexion.</li>
+        </ol>
+
+        <!-- ==========================================
+        SECTION 4 : LES 7 SYSTÈMES CRISTALLINS
+        ========================================== -->
+        <div class="section-title">4. Les 7 Systèmes Cristallins</div>
+
+        <p>
+            Les réseaux de Bravais sont classés en fonction de leur symétrie. On distingue 7 systèmes
+            cristallins, caractérisés par les relations entre les paramètres de maille (a, b, c) et les
+            angles (α, β, γ).
+        </p>
+
+        <div class="subsection-title">Tableau 2 – Les 7 systèmes cristallins</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Système cristallin</th>
+                    <th>Relations entre paramètres</th>
+                    <th>Symétrie minimale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cubique</strong></td>
+                    <td>a = b = c, α = β = γ = 90°</td>
+                    <td>4 axes d'ordre 3</td>
+                </tr>
+                <tr>
+                    <td><strong>Tétragonal</strong></td>
+                    <td>a = b ≠ c, α = β = γ = 90°</td>
+                    <td>1 axe d'ordre 4</td>
+                </tr>
+                <tr>
+                    <td><strong>Orthorhombique</strong></td>
+                    <td>a ≠ b ≠ c, α = β = γ = 90°</td>
+                    <td>3 axes d'ordre 2</td>
+                </tr>
+                <tr>
+                    <td><strong>Monoclinique</strong></td>
+                    <td>a ≠ b ≠ c, α = γ = 90° ≠ β</td>
+                    <td>1 axe d'ordre 2</td>
+                </tr>
+                <tr>
+                    <td><strong>Triclinique</strong></td>
+                    <td>a ≠ b ≠ c, α ≠ β ≠ γ ≠ 90°</td>
+                    <td>Aucun</td>
+                </tr>
+                <tr>
+                    <td><strong>Hexagonal</strong></td>
+                    <td>a = b ≠ c, α = β = 90°, γ = 120°</td>
+                    <td>1 axe d'ordre 6</td>
+                </tr>
+                <tr>
+                    <td><strong>Rhomboédrique</strong></td>
+                    <td>a = b = c, α = β = γ ≠ 90°</td>
+                    <td>1 axe d'ordre 3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Continuation -->
+        <div class="continuation">
+            ➡ Suite du chapitre dans <strong>chapitre2B.html</strong> (Partie B)
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+    BOUTONS DE TÉLÉCHARGEMENT
+    ========================================== -->
+    <div class="download-chapter">
+        <a href="chapitre2A.html" class="btn-download">
+            <span class="icon">📄</span> Partie A (courant)
+        </a>
+        <a href="chapitre2B.html" class="btn-download secondary">
+            <span class="icon">➡️</span> Partie B
+        </a>
+        <a href="chapitre2C.html" class="btn-download secondary">
+            <span class="icon">➡️</span> Partie C
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

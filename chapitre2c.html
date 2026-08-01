@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 2C : Réseau Cristallin et Maille Élémentaire - Université Moulay Tahar Saida</title>
+    <style>
+        /* ============================================
+           RESET & BASE (même style que fichier1.html)
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: #eef1f5;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 25px 15px;
+        }
+
+        .chapter-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+        }
+
+        .chapter-header {
+            background: linear-gradient(145deg, #0b2a4a 0%, #1a4a7a 60%, #0f3a5f 100%);
+            padding: 20px 35px;
+            border-bottom: 5px solid #d4a843;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chapter-header .back-link {
+            color: #d4a843;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .chapter-header .back-link:hover {
+            background: rgba(212, 168, 67, 0.15);
+            color: #ffffff;
+        }
+
+        .chapter-header .chapter-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .chapter-header .chapter-title span {
+            color: #d4a843;
+        }
+
+        .chapter-header .chapter-badge {
+            background: rgba(212, 168, 67, 0.20);
+            border: 1px solid #d4a843;
+            border-radius: 30px;
+            padding: 6px 18px;
+            color: #d4a843;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .chapter-content {
+            padding: 35px 40px 45px 40px;
+        }
+
+        .chapter-content h1 {
+            font-size: 32px;
+            color: #0b2a4a;
+            text-align: center;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .chapter-content .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #1a4a7a;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .chapter-content .year {
+            text-align: center;
+            font-size: 18px;
+            color: #4a6a8a;
+            margin-bottom: 30px;
+        }
+
+        .chapter-content .section-title {
+            font-size: 26px;
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #d4a843;
+        }
+
+        .chapter-content .subsection-title {
+            font-size: 22px;
+            color: #1a4a7a;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-content .subsubsection-title {
+            font-size: 19px;
+            color: #2a5a8a;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-content p {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .chapter-content ul li, .chapter-content ol li {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .chapter-content .part-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .chapter-content .part-navigation a {
+            background: #f0f6ff;
+            color: #1a4a7a;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #dce3ec;
+            transition: all 0.3s ease;
+        }
+
+        .chapter-content .part-navigation a:hover {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .part-navigation a.active {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .bibliography {
+            font-size: 14px;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .chapter-content .bibliography li {
+            margin-bottom: 6px;
+        }
+
+        .download-chapter {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            border-top: 2px solid #e8ecf4;
+            padding-top: 25px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(145deg, #1a4a7a, #0f3a5f);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.30);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 74, 122, 0.40);
+            background: linear-gradient(145deg, #1f5a8a, #124a7a);
+        }
+
+        .btn-download.secondary {
+            background: #ffffff;
+            color: #1a4a7a;
+            border: 2px solid #1a4a7a;
+            box-shadow: none;
+        }
+
+        .btn-download.secondary:hover {
+            background: #f0f6ff;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.15);
+        }
+
+        .btn-download .icon {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 12px 8px; }
+            .chapter-header { padding: 16px 20px; flex-direction: column; align-items: stretch; }
+            .chapter-header .back-link { align-self: flex-start; }
+            .chapter-header .chapter-title { font-size: 18px; }
+            .chapter-header .chapter-badge { align-self: flex-start; }
+            .chapter-content { padding: 20px 18px 30px 18px; }
+            .chapter-content h1 { font-size: 24px; }
+            .chapter-content .section-title { font-size: 20px; }
+            .chapter-content .subsection-title { font-size: 18px; }
+            .download-chapter { flex-direction: column; }
+            .btn-download { width: 100%; justify-content: center; padding: 12px 20px; }
+            .chapter-content .part-navigation a { padding: 6px 14px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-header .chapter-title { font-size: 16px; }
+            .chapter-content h1 { font-size: 20px; }
+            .chapter-content .section-title { font-size: 17px; }
+        }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .chapter-wrapper { box-shadow: none; border-radius: 0; }
+            .chapter-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .btn-download { display: none; }
+            .chapter-content .part-navigation { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-wrapper">
+
+    <header class="chapter-header">
+        <a href="index.html" class="back-link">← Retour au sommaire</a>
+        <div class="chapter-title">Chapitre 2 : <span>Réseau Cristallin et Maille Élémentaire</span></div>
+        <div class="chapter-badge">📘 Partie C</div>
+    </header>
+
+    <div class="chapter-content">
+
+        <h1>Réseau Cristallin et Maille Élémentaire</h1>
+        <div class="subtitle">Abdeldader LEBOUKH</div>
+        <div class="year">Année Universitaire 2026-2027</div>
+
+        <div class="part-navigation">
+            <a href="chapitre2A.html">Partie A</a>
+            <a href="chapitre2B.html">Partie B</a>
+            <a href="chapitre2C.html" class="active">Partie C</a>
+        </div>
+
+        <p style="text-align:center; font-style:italic; color:#4a6a8a; margin-bottom:20px;">(Suite et fin – Partie C)</p>
+
+        <!-- ==========================================
+        SECTION 7 : OCCUPATION DANS LES STRUCTURES
+        ========================================== -->
+        <div class="section-title">7. Occupation dans les Structures Métalliques et Ioniques</div>
+
+        <div class="subsection-title">7.1 Structures Métalliques</div>
+
+        <p>Les métaux cristallisent généralement selon trois structures principales :</p>
+
+        <div class="subsubsection-title">7.1.1 Structure Cubique Compacte (CCP ou F)</div>
+        <ul>
+            <li><strong>Empilement :</strong> ABC ABC...</li>
+            <li><strong>Exemples :</strong> Cu, Al, Au, Pt, Ni, Ag</li>
+            <li><strong>Coordinence :</strong> 12</li>
+            <li><strong>Fraction de remplissage :</strong> 74,05%</li>
+        </ul>
+
+        <div class="subsubsection-title">7.1.2 Structure Hexagonale Compacte (HCP)</div>
+        <ul>
+            <li><strong>Empilement :</strong> AB AB...</li>
+            <li><strong>Exemples :</strong> Mg, Zn, Ti, Co, Zr</li>
+            <li><strong>Coordinence :</strong> 12</li>
+            <li><strong>Fraction de remplissage :</strong> 74,05%</li>
+        </ul>
+
+        <div class="subsubsection-title">7.1.3 Structure Cubique Centrée (CC ou I)</div>
+        <ul>
+            <li><strong>Empilement :</strong> Non compact</li>
+            <li><strong>Exemples :</strong> Fe (α), Cr, Mo, W, Na, K</li>
+            <li><strong>Coordinence :</strong> 8</li>
+            <li><strong>Fraction de remplissage :</strong> 68,02%</li>
+        </ul>
+
+        <div class="subsection-title">7.2 Structures Ioniques</div>
+
+        <p>
+            Les structures ioniques sont souvent décrites comme des empilements d'ions de grand rayon
+            (anions) dans lesquels les cations viennent occuper des sites interstitiels.
+        </p>
+
+        <div class="subsubsection-title">7.2.1 Structure NaCl (Type Roches salines)</div>
+        <ul>
+            <li><strong>Réseau :</strong> Cubique F (pour chaque type d'ion)</li>
+            <li><strong>Description :</strong> Empilement CCP de Cl<sup>−</sup> avec tous les sites
+                octaédriques occupés par Na<sup>+</sup></li>
+            <li><strong>Coordinence :</strong> 6 (chaque ion est entouré de 6 ions de l'autre type)</li>
+            <li><strong>Exemples :</strong> NaCl, KCl, LiF, MgO, CaO</li>
+        </ul>
+
+        <div class="subsubsection-title">7.2.2 Structure CsCl</div>
+        <ul>
+            <li><strong>Réseau :</strong> Cubique P (pour chaque type d'ion, décalé de 1/2)</li>
+            <li><strong>Description :</strong> Cubique simple de Cl<sup>−</sup> avec des Cs<sup>+</sup>
+                au centre des cubes</li>
+            <li><strong>Coordinence :</strong> 8 (chaque ion est entouré de 8 ions de l'autre type)</li>
+            <li><strong>Exemples :</strong> CsCl, CsBr, CsI, NH<sub>4</sub>Cl</li>
+        </ul>
+
+        <div class="subsubsection-title">7.2.3 Structure Fluorine (CaF<sub>2</sub>)</div>
+        <ul>
+            <li><strong>Réseau :</strong> Cubique F pour Ca<sup>2+</sup></li>
+            <li><strong>Description :</strong> Empilement CCP de Ca<sup>2+</sup> avec tous les sites
+                tétraédriques occupés par F<sup>−</sup></li>
+            <li><strong>Coordinence :</strong> Ca<sup>2+</sup> : 8, F<sup>−</sup> : 4</li>
+            <li><strong>Exemples :</strong> CaF<sub>2</sub>, BaF<sub>2</sub>, SrF<sub>2</sub>, UO<sub>2</sub>, CeO<sub>2</sub></li>
+        </ul>
+
+        <!-- ==========================================
+        SECTION 8 : OUTILS INFORMATIQUES ET IA
+        ========================================== -->
+        <div class="section-title">8. Outils Informatiques et IA pour la Cristallographie</div>
+
+        <div class="subsection-title">8.1 Logiciels de Visualisation et de Simulation</div>
+        <ul>
+            <li><strong>VESTA :</strong> Visualisation de structures cristallines et de densité électronique.</li>
+            <li><strong>Materials Studio :</strong> Suite complète pour la modélisation et la simulation en
+                science des matériaux.</li>
+            <li><strong>Quantum ESPRESSO :</strong> Code open-source pour les calculs de structure électronique
+                basé sur la DFT.</li>
+            <li><strong>Atomsk :</strong> Outil de construction et de manipulation de structures cristallines.</li>
+            <li><strong>Ovito :</strong> Visualisation et analyse de données de simulation atomistique.</li>
+            <li><strong>CCP14 :</strong> Collection de logiciels de cristallographie disponibles gratuitement.</li>
+        </ul>
+
+        <div class="subsection-title">8.2 Bases de Données Cristallographiques</div>
+        <ul>
+            <li><strong>Crystallography Open Database (COD) :</strong> Base de données libre de structures
+                cristallines.</li>
+            <li><strong>Inorganic Crystal Structure Database (ICSD) :</strong> Base de données de structures
+                cristallines inorganiques.</li>
+            <li><strong>Cambridge Structural Database (CSD) :</strong> Base de données de structures organiques
+                et organométalliques.</li>
+            <li><strong>Materials Project :</strong> Base de données de matériaux avec propriétés calculées.</li>
+            <li><strong>AFLOW :</strong> Base de données automatisée de structures et propriétés.</li>
+        </ul>
+
+        <div class="subsection-title">8.3 Outils d'Intelligence Artificielle</div>
+        <ul>
+            <li><strong>AlphaFold :</strong> Prédiction de structures protéiques par IA (DeepMind).</li>
+            <li><strong>CGCNN :</strong> Réseau de neurones graphiques pour la prédiction de propriétés
+                cristallines.</li>
+            <li><strong>SchNetPack :</strong> Paquetage pour les réseaux de neurones en chimie quantique et
+                science des matériaux.</li>
+            <li><strong>Materials Project Dashboard :</strong> Plateforme avec intégration d'outils d'analyse
+                par IA.</li>
+            <li><strong>Materials Cloud :</strong> Plateforme pour la science des matériaux basée sur les
+                données et l'IA.</li>
+        </ul>
+
+        <div class="subsection-title">8.4 Ressources Éducatives et Tutoriels</div>
+        <ul>
+            <li><strong>DoITPoMS :</strong> Tutoriels en ligne sur la science des matériaux et la
+                cristallographie.</li>
+            <li><strong>NanoHUB :</strong> Ressources éducatives et outils de simulation en nanotechnologie.</li>
+            <li><strong>International Union of Crystallography (IUCr) :</strong> Ressources et publications
+                en cristallographie.</li>
+            <li><strong>Crystal Symmetry :</strong> Blog éducatif sur la symétrie cristalline.</li>
+        </ul>
+
+        <!-- ==========================================
+        SECTION 9 : BIBLIOGRAPHIE
+        ========================================== -->
+        <div class="section-title">9. Bibliographie</div>
+
+        <ol class="bibliography">
+            <li><strong>[1]</strong> Ashcroft, N. W., &amp; Mermin, N. D. (1976). <em>Solid State Physics</em>.
+                Holt, Rinehart and Winston.</li>
+            <li><strong>[2]</strong> Kittel, C. (2005). <em>Introduction to Solid State Physics</em> (8th ed.).
+                John Wiley &amp; Sons.</li>
+            <li><strong>[3]</strong> Giacovazzo, C., Monaco, H. L., Artioli, G., Viterbo, D., Ferraris, G.,
+                Gilli, G., ... &amp; Zanotti, G. (2011). <em>Fundamentals of Crystallography</em> (3rd ed.).
+                Oxford University Press.</li>
+            <li><strong>[4]</strong> Bravais, A. (1848). Mémoire sur les systèmes formés par des points
+                distribués régulièrement sur un plan ou dans l'espace. <em>Journal de l'École Polytechnique</em>,
+                19, 1-128.</li>
+            <li><strong>[5]</strong> Shannon, R. D. (1976). Revised effective ionic radii and systematic
+                studies of interatomic distances in halides and chalcogenides.
+                <em>Acta Crystallographica Section A</em>, 32, 751-767.</li>
+            <li><strong>[6]</strong> West, A. R. (2014). <em>Solid State Chemistry and its Applications</em>
+                (2nd ed.). John Wiley &amp; Sons.</li>
+        </ol>
+
+        <!-- Conclusion -->
+        <div style="margin-top:30px;padding:20px;background:#f0f6ff;border-radius:12px;border:1px solid #dce3ec;">
+            <h3 style="font-size:20px;color:#0b2a4a;margin-bottom:10px;">📝 Conclusion du chapitre 2</h3>
+            <p style="font-size:16px;color:#2c3e50;text-align:justify;">
+                Ce chapitre a introduit les concepts fondamentaux de la cristallographie : les réseaux
+                de Bravais, les mailles élémentaires (primitive et conventionnelle), les 7 systèmes
+                cristallins et les 14 réseaux de Bravais. Nous avons également vu comment les sites
+                interstitiels (octaédriques et tétraédriques) sont occupés dans les structures métalliques
+                et ioniques. La maîtrise de ces concepts est essentielle pour comprendre les propriétés
+                physico-chimiques des matériaux solides. Les outils informatiques et d'IA présentés
+                (VESTA, Materials Project, CGCNN, etc.) offrent des possibilités puissantes pour la
+                modélisation et la découverte de nouveaux matériaux.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="download-chapter">
+        <a href="chapitre2A.html" class="btn-download secondary">
+            <span class="icon">⬅️</span> Partie A
+        </a>
+        <a href="chapitre2B.html" class="btn-download secondary">
+            <span class="icon">⬅️</span> Partie B
+        </a>
+        <a href="chapitre2C.html" class="btn-download">
+            <span class="icon">📄</span> Partie C (courant)
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

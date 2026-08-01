@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 2B : Réseau Cristallin et Maille Élémentaire - Université Moulay Tahar Saida</title>
+    <style>
+        /* ============================================
+           RESET & BASE (même style que fichier1.html)
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            background: #eef1f5;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 25px 15px;
+        }
+
+        .chapter-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.10);
+            overflow: hidden;
+        }
+
+        .chapter-header {
+            background: linear-gradient(145deg, #0b2a4a 0%, #1a4a7a 60%, #0f3a5f 100%);
+            padding: 20px 35px;
+            border-bottom: 5px solid #d4a843;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chapter-header .back-link {
+            color: #d4a843;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+        }
+
+        .chapter-header .back-link:hover {
+            background: rgba(212, 168, 67, 0.15);
+            color: #ffffff;
+        }
+
+        .chapter-header .chapter-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .chapter-header .chapter-title span {
+            color: #d4a843;
+        }
+
+        .chapter-header .chapter-badge {
+            background: rgba(212, 168, 67, 0.20);
+            border: 1px solid #d4a843;
+            border-radius: 30px;
+            padding: 6px 18px;
+            color: #d4a843;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .chapter-content {
+            padding: 35px 40px 45px 40px;
+        }
+
+        .chapter-content h1 {
+            font-size: 32px;
+            color: #0b2a4a;
+            text-align: center;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .chapter-content .subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #1a4a7a;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .chapter-content .year {
+            text-align: center;
+            font-size: 18px;
+            color: #4a6a8a;
+            margin-bottom: 30px;
+        }
+
+        .chapter-content .section-title {
+            font-size: 26px;
+            color: #0b2a4a;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #d4a843;
+        }
+
+        .chapter-content .subsection-title {
+            font-size: 22px;
+            color: #1a4a7a;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .chapter-content .subsubsection-title {
+            font-size: 19px;
+            color: #2a5a8a;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-content p {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .chapter-content ul, .chapter-content ol {
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        .chapter-content ul li, .chapter-content ol li {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .chapter-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 20px 0;
+            font-size: 15px;
+        }
+
+        .chapter-content table th {
+            background: #1a4a7a;
+            color: #ffffff;
+            padding: 10px 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .chapter-content table td {
+            padding: 8px 12px;
+            border: 1px solid #dce3ec;
+            text-align: center;
+        }
+
+        .chapter-content table tr:nth-child(even) {
+            background: #f8faff;
+        }
+
+        .chapter-content table tr:hover {
+            background: #e8eef8;
+        }
+
+        .chapter-content .note-box {
+            background: #f8faff;
+            border-left: 4px solid #d4a843;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .chapter-content .note-box strong {
+            color: #1a4a7a;
+        }
+
+        .chapter-content .formula {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #0b2a4a;
+            padding: 15px 0;
+            background: #f0f6ff;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .chapter-content .part-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .chapter-content .part-navigation a {
+            background: #f0f6ff;
+            color: #1a4a7a;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #dce3ec;
+            transition: all 0.3s ease;
+        }
+
+        .chapter-content .part-navigation a:hover {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .part-navigation a.active {
+            background: #1a4a7a;
+            color: #ffffff;
+            border-color: #1a4a7a;
+        }
+
+        .chapter-content .continuation {
+            text-align: center;
+            font-style: italic;
+            color: #4a6a8a;
+            margin: 30px 0 10px 0;
+            padding: 15px;
+            border-top: 2px dashed #dce3ec;
+            border-bottom: 2px dashed #dce3ec;
+        }
+
+        .download-chapter {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            border-top: 2px solid #e8ecf4;
+            padding-top: 25px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(145deg, #1a4a7a, #0f3a5f);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.30);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 74, 122, 0.40);
+            background: linear-gradient(145deg, #1f5a8a, #124a7a);
+        }
+
+        .btn-download.secondary {
+            background: #ffffff;
+            color: #1a4a7a;
+            border: 2px solid #1a4a7a;
+            box-shadow: none;
+        }
+
+        .btn-download.secondary:hover {
+            background: #f0f6ff;
+            box-shadow: 0 4px 14px rgba(26, 74, 122, 0.15);
+        }
+
+        .btn-download .icon {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 12px 8px; }
+            .chapter-header { padding: 16px 20px; flex-direction: column; align-items: stretch; }
+            .chapter-header .back-link { align-self: flex-start; }
+            .chapter-header .chapter-title { font-size: 18px; }
+            .chapter-header .chapter-badge { align-self: flex-start; }
+            .chapter-content { padding: 20px 18px 30px 18px; }
+            .chapter-content h1 { font-size: 24px; }
+            .chapter-content .section-title { font-size: 20px; }
+            .chapter-content .subsection-title { font-size: 18px; }
+            .chapter-content table { font-size: 13px; }
+            .chapter-content table th, .chapter-content table td { padding: 6px 8px; }
+            .download-chapter { flex-direction: column; }
+            .btn-download { width: 100%; justify-content: center; padding: 12px 20px; }
+            .chapter-content .part-navigation a { padding: 6px 14px; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .chapter-header .chapter-title { font-size: 16px; }
+            .chapter-content h1 { font-size: 20px; }
+            .chapter-content .section-title { font-size: 17px; }
+            .chapter-content table { font-size: 11px; }
+            .chapter-content table th, .chapter-content table td { padding: 4px 6px; }
+        }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .chapter-wrapper { box-shadow: none; border-radius: 0; }
+            .chapter-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .btn-download { display: none; }
+            .chapter-content .part-navigation { display: none; }
+            .chapter-content .continuation { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapter-wrapper">
+
+    <header class="chapter-header">
+        <a href="index.html" class="back-link">← Retour au sommaire</a>
+        <div class="chapter-title">Chapitre 2 : <span>Réseau Cristallin et Maille Élémentaire</span></div>
+        <div class="chapter-badge">📘 Partie B</div>
+    </header>
+
+    <div class="chapter-content">
+
+        <h1>Réseau Cristallin et Maille Élémentaire</h1>
+        <div class="subtitle">Abdeldader LEBOUKH</div>
+        <div class="year">Année Universitaire 2026-2027</div>
+
+        <div class="part-navigation">
+            <a href="chapitre2A.html">Partie A</a>
+            <a href="chapitre2B.html" class="active">Partie B</a>
+            <a href="chapitre2C.html">Partie C</a>
+        </div>
+
+        <p style="text-align:center; font-style:italic; color:#4a6a8a; margin-bottom:20px;">(Suite – Partie B)</p>
+
+        <!-- ==========================================
+        SECTION 5 : LES 14 RÉSEAUX DE BRAVAIS
+        ========================================== -->
+        <div class="section-title">5. Les 14 Réseaux de Bravais</div>
+
+        <p>
+            Auguste Bravais a démontré en 1848 qu'il n'existe que 14 réseaux tridimensionnels distincts,
+            répartis entre les 7 systèmes cristallins.
+        </p>
+
+        <div class="subsection-title">5.1 Classification complète</div>
+
+        <div class="subsection-title">Tableau 3 – Les 14 réseaux de Bravais</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Système</th>
+                    <th>Réseaux</th>
+                    <th>Exemples concrets</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cubique</strong></td>
+                    <td>P, I, F</td>
+                    <td>NaCl (F), CsCl (P), Cu (F), Fe<sub>α</sub> (I)</td>
+                </tr>
+                <tr>
+                    <td><strong>Tétragonal</strong></td>
+                    <td>P, I</td>
+                    <td>Sn blanc (I), TiO<sub>2</sub> (I)</td>
+                </tr>
+                <tr>
+                    <td><strong>Orthorhombique</strong></td>
+                    <td>P, I, F, C</td>
+                    <td>Ga (P), U (C)</td>
+                </tr>
+                <tr>
+                    <td><strong>Monoclinique</strong></td>
+                    <td>P, C</td>
+                    <td>Li<sub>2</sub>SO<sub>4</sub> (P)</td>
+                </tr>
+                <tr>
+                    <td><strong>Triclinique</strong></td>
+                    <td>P</td>
+                    <td>K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (P)</td>
+                </tr>
+                <tr>
+                    <td><strong>Hexagonal</strong></td>
+                    <td>P</td>
+                    <td>Mg (P), Zn (P)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rhomboédrique</strong></td>
+                    <td>R</td>
+                    <td>CaCO<sub>3</sub> (R), Al<sub>2</sub>O<sub>3</sub> (R)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="subsection-title">5.2 Notation des réseaux</div>
+
+        <ul>
+            <li><strong>P :</strong> Primitive (ou Simple) – 1 nœud par maille</li>
+            <li><strong>I :</strong> Centrée (<em>Innenzentriert</em> en allemand) – 1 nœud au centre de la maille</li>
+            <li><strong>F :</strong> Faces centrées – 1 nœud au centre de chaque face</li>
+            <li><strong>C :</strong> Base centrée – 1 nœud au centre des faces supérieure et inférieure (ou A ou B selon l'axe)</li>
+        </ul>
+
+        <div class="subsection-title">5.3 Exemples détaillés</div>
+
+        <div class="subsubsection-title">5.3.1 Réseau Cubique Simple (P)</div>
+        <ul>
+            <li><strong>Description :</strong> Un nœud à chaque sommet du cube.</li>
+            <li><strong>Exemple :</strong> Polonium (α-Po), CsCl (si on ne considère que les ions Cs<sup>+</sup>).</li>
+            <li><strong>Nombre de nœuds par maille :</strong> 8 × 1/8 = 1</li>
+        </ul>
+
+        <div class="subsubsection-title">5.3.2 Réseau Cubique Centré (I)</div>
+        <ul>
+            <li><strong>Description :</strong> Un nœud à chaque sommet et un au centre du cube.</li>
+            <li><strong>Exemple :</strong> Fer α, Chrome, Tungstène.</li>
+            <li><strong>Nombre de nœuds par maille :</strong> 8 × 1/8 + 1 = 2</li>
+        </ul>
+
+        <div class="subsubsection-title">5.3.3 Réseau Cubique à Faces Centrées (F)</div>
+        <ul>
+            <li><strong>Description :</strong> Un nœud à chaque sommet et un au centre de chaque face.</li>
+            <li><strong>Exemple :</strong> Cuivre, Aluminium, Or, Nickel.</li>
+            <li><strong>Nombre de nœuds par maille :</strong> 8 × 1/8 + 6 × 1/2 = 4</li>
+        </ul>
+
+        <div class="subsubsection-title">Figure 4 – Les trois réseaux cubiques : P (simple), I (centré) et F (faces centrées)</div>
+
+        <!-- ==========================================
+        SECTION 6 : SITES INTERSTITIELS
+        ========================================== -->
+        <div class="section-title">6. Sites Interstitiels : Octaédriques et Tétraédriques</div>
+
+        <p>
+            Les sites interstitiels sont des positions dans le réseau cristallin où des atomes ou ions de
+            petite taille peuvent s'insérer sans déformer significativement la structure.
+        </p>
+
+        <div class="subsection-title">6.1 Sites Octaédriques</div>
+
+        <p>Un site octaédrique est entouré par 6 atomes voisins formant un octaèdre.</p>
+
+        <ul>
+            <li><strong>Localisation :</strong> Centre de l'octaèdre formé par les atomes.</li>
+            <li><strong>Coordinence :</strong> 6</li>
+            <li><strong>Exemples :</strong> Sites O dans NaCl (tous les sites octaédriques sont occupés),
+                sites interstitiels dans les métaux.</li>
+        </ul>
+
+        <div class="subsection-title">6.2 Sites Tétraédriques</div>
+
+        <p>Un site tétraédrique est entouré par 4 atomes voisins formant un tétraèdre.</p>
+
+        <ul>
+            <li><strong>Localisation :</strong> Centre du tétraèdre formé par les atomes.</li>
+            <li><strong>Coordinence :</strong> 4</li>
+            <li><strong>Exemples :</strong> Sites T dans la structure du diamant, sites interstitiels dans les alliages.</li>
+        </ul>
+
+        <div class="subsection-title">6.3 Nombre de sites interstitiels</div>
+
+        <p>Pour une structure donnée, le nombre de sites interstitiels par maille est fixé :</p>
+
+        <div class="subsection-title">Tableau 4 – Nombre de sites interstitiels dans les structures cubiques</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Structure</th>
+                    <th>Sites octaédriques</th>
+                    <th>Sites tétraédriques</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cubique Simple (P)</strong></td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td><strong>Cubique Centré (I)</strong></td>
+                    <td>6</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td><strong>Cubique Faces Centrées (F)</strong></td>
+                    <td>4</td>
+                    <td>8</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="subsubsection-title">Figure 5 – Représentation des sites octaédrique (gauche) et tétraédrique (droite)</div>
+
+        <!-- Continuation -->
+        <div class="continuation">
+            ➡ Suite du chapitre dans <strong>chapitre2C.html</strong> (Partie C)
+        </div>
+
+    </div>
+
+    <div class="download-chapter">
+        <a href="chapitre2A.html" class="btn-download secondary">
+            <span class="icon">⬅️</span> Partie A
+        </a>
+        <a href="chapitre2B.html" class="btn-download">
+            <span class="icon">📄</span> Partie B (courant)
+        </a>
+        <a href="chapitre2C.html" class="btn-download secondary">
+            <span class="icon">➡️</span> Partie C
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
