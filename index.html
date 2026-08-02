@@ -68,14 +68,13 @@
             padding: 18px 25px;
             margin-bottom: 15px;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
         .chapter:hover {
             border-color: #1a2a6c;
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(26, 42, 108, 0.1);
         }
-        .chapter a {
+        .chapter-link {
             text-decoration: none;
             display: block;
             color: inherit;
@@ -95,6 +94,7 @@
             padding: 3px 14px;
             border-radius: 20px;
             font-weight: normal;
+            white-space: nowrap;
         }
         .chapter-desc {
             color: #888;
@@ -145,6 +145,21 @@
             color: #2e7d32;
             font-size: 13px;
         }
+        .debug-info {
+            background: #fff3e0;
+            border: 1px solid #ffcc80;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #e65100;
+        }
+        .debug-info code {
+            background: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
         @media (max-width: 600px) {
             .container { padding: 25px 18px; }
             .chapter-title { font-size: 17px; flex-wrap: wrap; gap: 8px; }
@@ -171,7 +186,7 @@
 
         <!-- Chapitre 1 -->
         <div class="chapter">
-            <a href="./chapitre1.html">
+            <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre1.html" class="chapter-link">
                 <div class="chapter-title">
                     <span><span class="chapter-icon">📖</span> Chapitre 1 : Introduction à la cristallographie</span>
                     <span class="badge">Complet</span>
@@ -188,15 +203,24 @@
             </div>
             <div class="chapter-desc">Réseau de Bravais · Paramètres de maille · Systèmes cristallins</div>
             <div class="sub-chapters">
-                <a href="./chapitre2a.html">📘 Partie A · Réseau</a>
-                <a href="./chapitre2b.html">📗 Partie B · Maille</a>
-                <a href="./chapitre2c.html">📙 Partie C · Exercices</a>
+                <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2a.html">📘 Partie A · Réseau</a>
+                <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2b.html">📗 Partie B · Maille</a>
+                <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2c.html">📙 Partie C · Exercices</a>
             </div>
         </div>
 
-        <!-- Status GitHub Pages -->
+        <!-- Status -->
         <div class="status">
-            ✅ Hébergé sur GitHub Pages · Tous les chapitres sont accessibles
+            ✅ Hébergé sur GitHub Pages
+        </div>
+
+        <!-- Debug Info -->
+        <div class="debug-info">
+            🔍 <strong>Vérification des fichiers :</strong><br>
+            • <code>chapitre1.html</code> → <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre1.html" target="_blank" style="color:#1a2a6c;">Tester ce lien</a><br>
+            • <code>chapitre2a.html</code> → <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2a.html" target="_blank" style="color:#1a2a6c;">Tester ce lien</a><br>
+            • <code>chapitre2b.html</code> → <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2b.html" target="_blank" style="color:#1a2a6c;">Tester ce lien</a><br>
+            • <code>chapitre2c.html</code> → <a href="https://abdou55-lab.github.io/cours-chimie-solides/chapitre2c.html" target="_blank" style="color:#1a2a6c;">Tester ce lien</a>
         </div>
 
         <!-- Footer -->
