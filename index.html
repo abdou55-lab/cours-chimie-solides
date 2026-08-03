@@ -3,215 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Chimie des Solides</title>
+    <title>Cours de Chimie des Solides</title>
     <style>
+        /* Reset et styles globaux */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a2a6c, #2d4373);
+            background: #f0f4f8;
+            color: #1a202c;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            flex-direction: column;
         }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2b6cb0, #2c5282);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Conteneur principal */
         .container {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 850px;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
         }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+
+        /* Section d'introduction */
+        .intro {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
-        .header h1 {
-            font-size: 32px;
-            color: #1a2a6c;
-            margin-bottom: 5px;
+
+        .intro h2 {
+            color: #2b6cb0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
-        .header .subtitle {
-            color: #666;
-            font-size: 16px;
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a5568;
         }
-        .divider {
-            width: 80px;
-            height: 3px;
-            background: #1a2a6c;
-            margin: 15px auto 30px auto;
-            border-radius: 2px;
+
+        .intro .badge {
+            display: inline-block;
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
         }
-        .univ-info {
-            text-align: center;
-            background: #f0f4ff;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            font-size: 14px;
-            color: #1a2a6c;
+
+        /* Grille des chapitres */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border-left: 5px solid #2b6cb0;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .chapter-card .chapter-number {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2b6cb0;
+            font-weight: 600;
+        }
+
+        .chapter-card h3 {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+            color: #1a202c;
+        }
+
+        .chapter-card p {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .chapter-card .arrow {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: #2b6cb0;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Cartes avec couleurs différentes */
+        .chapter-card:nth-child(1) { border-left-color: #2b6cb0; }
+        .chapter-card:nth-child(2) { border-left-color: #38a169; }
+        .chapter-card:nth-child(3) { border-left-color: #d69e2e; }
+        .chapter-card:nth-child(4) { border-left-color: #dd6b20; }
+        .chapter-card:nth-child(5) { border-left-color: #805ad5; }
+        .chapter-card:nth-child(6) { border-left-color: #e53e3e; }
+
+        /* Section des liens utiles */
+        .quick-links {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            align-items: center;
+        }
+
+        .quick-links span {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .quick-links a {
+            color: #2b6cb0;
+            text-decoration: none;
             font-weight: 500;
         }
-        .univ-info span {
-            font-weight: normal;
-            color: #555;
+
+        .quick-links a:hover {
+            text-decoration: underline;
         }
-        .chapter {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 12px;
-            padding: 18px 25px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: #a0aec0;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+            font-size: 0.95rem;
         }
-        .chapter:hover {
-            border-color: #1a2a6c;
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.1);
-        }
-        .chapter-link {
+
+        footer a {
+            color: #63b3ed;
             text-decoration: none;
-            display: block;
-            color: inherit;
         }
-        .chapter-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #1a2a6c;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        footer a:hover {
+            text-decoration: underline;
         }
-        .chapter-title .badge {
-            font-size: 13px;
-            background: #1a2a6c;
-            color: white;
-            padding: 3px 14px;
-            border-radius: 20px;
-            font-weight: normal;
-            white-space: nowrap;
-        }
-        .chapter-desc {
-            color: #888;
-            font-size: 14px;
-            margin-top: 4px;
-        }
-        .chapter-icon {
-            font-size: 22px;
-            margin-right: 10px;
-        }
-        .sub-chapters {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-            padding-left: 40px;
-        }
-        .sub-chapters a {
-            background: white;
-            padding: 6px 18px;
-            border-radius: 20px;
-            border: 1px solid #dde4ec;
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        .sub-chapters a:hover {
-            background: #1a2a6c;
-            color: white;
-            border-color: #1a2a6c;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        .status {
-            text-align: center;
-            margin-top: 15px;
-            padding: 8px;
-            background: #e8f5e9;
-            border-radius: 8px;
-            color: #2e7d32;
-            font-size: 13px;
-        }
-        .hosted {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 12px;
-            color: #aaa;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 25px 18px; }
-            .chapter-title { font-size: 17px; flex-wrap: wrap; gap: 8px; }
-            .sub-chapters { padding-left: 0; }
-            .sub-chapters a { font-size: 13px; padding: 5px 14px; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro h2 {
+                font-size: 1.4rem;
+            }
+
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
+    <header>
+        <h1>📐 Chimie des Solides</h1>
+        <p>et Cristallographie — Université</p>
+    </header>
+
+    <!-- Contenu principal -->
     <div class="container">
-        <!-- En-tête -->
-        <div class="header">
-            <h1>📐 Chimie des Solides</h1>
-            <p class="subtitle">Cristallographie et Structures Cristallines</p>
-            <div class="divider"></div>
-        </div>
 
-        <!-- Informations Université -->
-        <div class="univ-info">
-            🏛️ Université Moulay Tahar · Saida &nbsp;|&nbsp; 
-            <span>Faculté des Sciences et Technologies</span> &nbsp;|&nbsp; 
-            <span>Master 1 Chimie Inorganique</span>
-        </div>
+        <!-- Section d'introduction -->
+        <section class="intro">
+            <h2>Bienvenue !</h2>
+            <p>
+                Ce site regroupe l'ensemble des chapitres du cours de <strong>Chimie des Solides</strong> 
+                et de <strong>Cristallographie</strong>. Naviguez à travers les différents chapitres 
+                pour accéder au contenu pédagogique.
+            </p>
+            <span class="badge">📘 6 chapitres disponibles</span>
+        </section>
 
-        <!-- Chapitre 1 -->
-        <div class="chapter">
-            <a href="chapitre1.html" class="chapter-link">
-                <div class="chapter-title">
-                    <span><span class="chapter-icon">📖</span> Chapitre 1 : Introduction à la cristallographie</span>
-                    <span class="badge">Complet</span>
-                </div>
-                <div class="chapter-desc">Définitions : solide cristallin, amorphe · Notions de réseau de Bravais</div>
+        <!-- Grille des chapitres -->
+        <div class="chapters-grid">
+            <a href="chapitre1.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 1</span>
+                <h3>Introduction à la cristallographie</h3>
+                <p>Les bases de la cristallographie, réseaux cristallins et structures élémentaires.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre2a.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 2a</span>
+                <h3>Structures cristallines</h3>
+                <p>Les différents types de structures : cubique, hexagonale, etc.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre2b.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 2b</span>
+                <h3>Symétrie et opérations</h3>
+                <p>Opérations de symétrie, groupes d'espace et applications.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre2c.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 2c</span>
+                <h3>Diffraction des rayons X</h3>
+                <p>Principes de la diffraction, loi de Bragg et interprétation.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre3.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 3</span>
+                <h3>Défauts dans les solides</h3>
+                <p>Défauts ponctuels, linéaires, plans et leurs propriétés.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre4.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 4</span>
+                <h3>Propriétés des solides</h3>
+                <p>Propriétés mécaniques, thermiques et électriques des matériaux.</p>
+                <span class="arrow">Voir le chapitre →</span>
+            </a>
+
+            <a href="chapitre5.html" class="chapter-card">
+                <span class="chapter-number">Chapitre 5</span>
+                <h3>Applications & synthèse</h3>
+                <p>Applications industrielles et méthodes de synthèse des solides.</p>
+                <span class="arrow">Voir le chapitre →</span>
             </a>
         </div>
 
-        <!-- Chapitre 2 -->
-        <div class="chapter">
-            <div class="chapter-title">
-                <span><span class="chapter-icon">🔬</span> Chapitre 2 : Réseau Cristallin et Maille Élémentaire</span>
-                <span class="badge">3 parties</span>
-            </div>
-            <div class="chapter-desc">Réseau de Bravais · Paramètres de maille · Systèmes cristallins</div>
-            <div class="sub-chapters">
-                <a href="chapitre2a.html">📘 Partie A · Réseau</a>
-                <a href="chapitre2b.html">📗 Partie B · Maille</a>
-                <a href="chapitre2c.html">📙 Partie C · Exercices</a>
-            </div>
+        <!-- Liens rapides -->
+        <div class="quick-links">
+            <span>🔗 Liens utiles :</span>
+            <a href="https://github.com/abdou55-lab/cours-chimie-solides" target="_blank">Dépôt GitHub</a>
+            <a href="README.md" target="_blank">Lire le README</a>
+            <a href="#top">↑ Haut de page</a>
         </div>
 
-        <!-- Status -->
-        <div class="status">
-            ✅ Site hébergé sur Netlify · Tous les chapitres sont accessibles
-        </div>
-        <div class="hosted">
-            🚀 Déployé depuis GitHub
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            Abdeldader LEBOUKH · Année Universitaire 2026-2027
-        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Cours de Chimie des Solides et Cristallographie — 
+            <a href="https://github.com/abdou55-lab" target="_blank">abdou55-lab</a>
+            &nbsp;·&nbsp; Dernière mise à jour : 2026
+        </p>
+    </footer>
+
 </body>
 </html>
